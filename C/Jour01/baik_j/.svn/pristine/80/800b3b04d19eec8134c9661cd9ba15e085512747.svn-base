@@ -1,0 +1,21 @@
+/*
+** my_prev_char.c for my_prev_char in 
+** 
+** Made by BAIK Jaehyun
+** Login   <baik_j@etna-alternance.net>
+** 
+** Started on  Mon Mar 21 18:15:35 2016 BAIK Jaehyun
+** Last update Mon Mar 21 18:19:38 2016 BAIK Jaehyun
+*/
+char	my_next_char(char c)
+{
+  if((c > 64 && c < 91) || (c > 96 && c < 123))
+    {
+      c = c + 1;
+      return c;
+    }
+  else
+    {
+      return '\n';
+    }
+}

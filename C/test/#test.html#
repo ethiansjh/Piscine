@@ -1,0 +1,37 @@
+<div class="temoin" id="testimonial">
+  <h1 id="temh1">Témoignages du CE</h1>
+  <div class="row">
+    <ul class="thumbnails">
+      <li class="span3">
+        <div class="thumbnail" id="t1">
+          <img src="http://www.cbanque.com/i/media/01i/001444iccc.jpg" alt="thumbnail">
+          <div class="caption">
+            <h2>Baudouin P.</h2>
+            <p>Je suis vraiment content d'avoir pu participer à l'avant-première STAR WARS hier soir. C'était magnifique!! J'ai eu la réduction équivalente à...</p>
+            <button class="btn-group btn-group-justified btn btn-warning" id="temb">Lire plus-></button>
+          </div>
+        </div>
+      </li>
+      <li class="span3">
+        <div class="thumbnail" id="t2">
+          <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Wilhelm_Gossler_(1811-1895).png/200px-Wilhelm_Gossler_(1811-1895).png" alt="thumbnail">
+          <div class="caption">
+            <h2>Berenberg B.</h2>
+            <p>J'étais toujous insatisfait des tickets restaurant...seulement 7 euros mais, bonne nouvelle, grâce au CE, les tickets sont maintenant...</p>
+            <button class="btn-group btn-group-justified btn btn-warning" id="temb">Lire plus-></button>
+          </div>
+        </div>
+      </li>
+      <li class="span3">
+        <div class="thumbnail" id="t3">
+          <img src="http://www.mlg-consulting.com/manager_cc/contacts/img_uploaded//thumbs/131204202326_sandrine-salvagnac-groupe-eco-medias_200x0.jpg" alt="thumbnail">
+          <div class="caption">
+            <h2>Inconnu</h2>
+            <p>Grâce au CE, pour la première fois dans ma vie, j'ai pu partir à l'étranger, toujours occupée de travail même pendant les vacances.Juste LOL...</p>
+            <button class="btn-group btn-group-justified btn btn-warning" id="temb">Lire plus-></button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

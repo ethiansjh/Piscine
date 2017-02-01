@@ -1,0 +1,21 @@
+/*
+** my_detec_format.c for my_detect_format in 
+** 
+** Made by BAIK Jaehyun
+** Login   <baik_j@etna-alternance.net>
+** 
+** Started on  Wed Mar 23 23:20:08 2016 BAIK Jaehyun
+** Last update Wed Mar 23 23:20:08 2016 BAIK Jaehyun
+*/
+
+void	my_putchar(char c);
+
+void	my_putstr(char *str)
+{
+  
+}
+
+void	my_detect_format(char *str)
+{
+  
+}

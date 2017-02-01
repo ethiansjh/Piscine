@@ -1,0 +1,32 @@
+/*
+** my_put_revstr.c for my_put_revstr in 
+** 
+** Made by BAIK Jaehyun
+** Login   <baik_j@etna-alternance.net>
+** 
+** Started on  Wed Mar 23 16:01:14 2016 BAIK Jaehyun
+** Last update Wed Mar 23 17:08:40 2016 BAIK Jaehyun
+*/
+
+void	my_putstr(char *str);
+
+int	my_strlen(char *str);
+
+void	my_put_revstr(char *str)
+{
+  int	i;
+  int	j;
+  char	temp;
+
+  i = 0;
+  j = my_strlen(str) - 1;
+  while (i < j)
+    {
+      temp = *(str + i);
+      *(str + i) = *(str + j);
+      *(str + j) = temp;
+      i = i + 1;
+      j = j - 1;
+    }
+  my_putstr(str);
+}

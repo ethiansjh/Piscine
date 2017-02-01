@@ -1,0 +1,24 @@
+/*
+** my_strncpy.c for my_strncpy in 
+** 
+** Made by BAIK Jaehyun
+** Login   <baik_j@etna-alternance.net>
+** 
+** Started on  Thu Mar 24 14:39:16 2016 BAIK Jaehyun
+** Last update Thu Mar 24 19:01:09 2016 BAIK Jaehyun
+*/
+
+char	*my_strncpy(char *dest, char *src, int n)
+{
+  int	i;
+  
+  for (i = 0; i < n; i = i + 1)
+    {
+      if (*(src + i) == '\0')
+	{
+	  *(dest + i) = '\0';
+	}
+      *(dest + i) = *(src + i);
+    }
+  return (dest);
+}

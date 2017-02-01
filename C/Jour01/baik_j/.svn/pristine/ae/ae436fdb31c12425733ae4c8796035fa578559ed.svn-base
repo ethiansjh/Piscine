@@ -1,0 +1,14 @@
+/*
+** my_putchar.c for BAIK Jaehyun in 
+** 
+** Made by BAIK Jaehyun
+** Login   <baik_j@etna-alternance.net>
+** 
+** Started on  Mon Mar 21 13:47:50 2016 BAIK Jaehyun
+** Last update Mon Mar 21 13:49:31 2016 BAIK Jaehyun
+*/
+void	my_putchar(char c)
+{
+  write(1, &c, 1);
+}
+  

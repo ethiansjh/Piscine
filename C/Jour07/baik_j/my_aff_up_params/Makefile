@@ -1,0 +1,19 @@
+CC	=	gcc
+NAME	=	aff_up
+SRC	=	my_putchar.c \
+		my_putstr.c \
+		my_strupcase.c \
+		main.c \
+		my_aff_up_params.c
+OBJ	=	$(SRC:%.c=%.o)
+
+$(NAME):	$(OBJ)
+		$(CC) $(OBJ) -o $(NAME)
+
+all:		$(NAME)
+
+clean:
+		$(RM) $(OBJ)
+
+fclean:			clean
+		$(RM $(NAME)

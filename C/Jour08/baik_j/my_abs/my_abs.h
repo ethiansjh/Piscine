@@ -1,0 +1,11 @@
+/*
+** my_abs.h for my_abs in 
+** 
+** Made by BAIK Jaehyun
+** Login   <baik_j@etna-alternance.net>
+** 
+** Started on  Tue Mar 29 10:53:44 2016 BAIK Jaehyun
+** Last update Tue Mar 29 11:38:40 2016 BAIK Jaehyun
+*/
+
+#define ABS(x) (((x) < 0) ? -(x) : (x))

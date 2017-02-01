@@ -1,0 +1,48 @@
+/*
+** epur_str.c for epur_str in 
+** 
+** Made by BAIK Jaehyun
+** Login   <baik_j@etna-alternance.net>
+** 
+** Started on  Wed Apr  6 09:33:57 2016 BAIK Jaehyun
+** Last update Wed Apr  6 10:48:45 2016 BAIK Jaehyun
+*/
+#include <stdio.h>
+int	my_strlen(char *str)
+{
+  int	i;
+
+  i = 0;
+  while (str[i] != '\0')
+    {
+      i = i + 1;
+    }
+  return (i);
+}
+
+char*	epur_str(char *str)
+{
+  int	i;
+  int	size;
+
+  size = my_strlen(str);
+  for (i = 0; i < size; i++)
+    {
+      if (*(str + i) == 32)
+	{
+	  *(str + i) = *(str + i) - 32;
+	}
+      else if (*(str + i) == '\t')
+	{
+	  *(str + i) = *(str + i) - '\t';
+	}
+    }
+  return ((str+i));
+}
+
+int	main()
+{
+  printf("%s\n", epur_str("L       O		L"));
+  printf("%s\n", epur_str("	iii			llll      "));
+  return (0);
+}

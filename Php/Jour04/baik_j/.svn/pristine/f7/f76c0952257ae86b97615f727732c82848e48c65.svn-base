@@ -1,0 +1,78 @@
+#!/usr/bin/env php
+<?php
+// count_word_sort.php for count_word_sort in 
+// 
+// Made by BAIK Jaehyun
+// Login   <baik_j@etna-alternance.net>
+// 
+// Started on  Thu Apr 14 09:52:05 2016 BAIK Jaehyun
+// Last update Fri Apr 15 02:35:29 2016 BAIK Jaehyun
+//
+
+function	count_array($arr)
+{
+  $i = 0;
+  foreach ($arr as $a)
+    {
+      $i++;
+      $a[$i];
+    }
+  return ($i);
+}
+
+function	unique_word($arr, $siz_arr)
+{	  
+  for ($i = 0; $i < $siz_arr; $i++)
+    {
+      if (isset($arr[0][$i]))
+	{
+	  for ($j = $i + 1; $j < $siz_arr; $j++)
+	    {
+	      if (isset($arr[0][$j]))
+		{
+		  if ($arr[0][$i] == $arr[0][$j])
+		    {
+		      unset($arr[0][$j]);
+		    }
+		}
+	    }
+	}
+    }
+  return ($arr);
+}
+
+function	sort_ascending($arr, $siz_arr)
+{
+  $keys = array_keys($arr);
+  for ($j = 0; $j < count($keys); $j++)
+    {
+      for ($i = 0; $i < count($keys) - 1; $i++)
+	{
+	  if ($arr[$keys[$i]] > $arr[$keys[$i + 1]])
+	    {
+	      $temp = $arr[$keys[$i + 1]];
+	      $arr[$keys[$i + 1]] = $arr[$keys[$i]];
+	      $arr[$keys[$i]] = $temp;
+	    }
+	}
+    }
+  return ($arr);
+}
+
+function	new_array($arr)
+{
+  $new = array_reduce($arr, 'array_merge', array());
+  return ($new);
+}
+
+if ($argc > 0)
+  {
+    $file = file_get_contents($argv[1]); 
+    preg_match_all("/[a-zA-Z]+/", $file, $output);    
+    $siz_arr = count_array($output[0]) . "\n";
+    echo "la taille de array : " . $siz_arr;
+    $arr = unique_word($output, $siz_arr);
+    $new = new_array($arr);
+    $new2 = sort_ascending($new, $siz_arr);
+    print_r($new2);
+  }

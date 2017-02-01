@@ -1,0 +1,155 @@
+/*
+** main.c for DicoWESH in 
+** 
+** Made by BAIK Jaehyun
+** Login   <baik_j@etna-alternance.net>
+** 
+** Started on  Thu Apr  7 19:20:45 2016 BAIK Jaehyun
+** Last update Sat Apr  9 09:49:24 2016 BAIK Jaehyun
+*/
+
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include "dico.h"
+
+void	my_putchar(char c);
+void	my_putstr(char *str);
+char	*my_strcpy(char *dest, char *src);
+
+void		add_word(t_word **dico)
+{
+  t_word	**tmp;
+  t_word	*elem;
+  char		*input;
+  char		*input2;
+
+  my_putstr("Ajoute le mot en français puis sa définition wesh\n");
+  input = readLine();
+  input2 = readLine();
+  while (isalphanum(input) != 0 || isalphanum(input2) != 0)
+    {
+      my_putstr("Vous n'avez pas entré un mot..\n");
+      input = readLine();
+      input2 = readLine();
+    }
+  elem = malloc(sizeof(t_word));
+  tmp = malloc(sizeof(t_word*));
+  *tmp = *dico;
+  while ((*dico)->next != NULL)
+    *dico = (*dico)->next;
+  (*dico)->next = elem;
+  elem->french = input;
+  elem->wesh = input2;
+  *dico = *tmp;
+  my_putstr("Le mot a été ajouté\n");
+  //free(tmp);
+}
+
+void		show_weshdico(t_word **dico)
+{
+  t_word	**tmp;
+
+  tmp = malloc(sizeof(t_word*));
+  my_sort_wesh(dico, my_strcmp);
+  *tmp = *dico;
+  while (*dico != NULL)
+    {
+      my_putstr((*dico)->wesh);
+      my_putchar('\n');
+      *dico = (*dico)->next;
+    }
+  *dico = *tmp;
+  free(tmp);
+}
+
+void		show_frenchdico(t_word **dico)
+{
+  t_word	**tmp;
+
+  tmp = malloc(sizeof(t_word*));
+  *tmp = *dico;
+  //my_sort_french(&dico, my_strcmp);
+  while (*dico != NULL)
+    {
+      my_putstr((*dico)->french);
+      my_putchar('\n');
+      *dico = (*dico)->next;
+    }
+  *dico = *tmp;
+  free(tmp);
+}
+
+void		choice(char *str, t_word **dico)
+{
+  char		*input;
+ 
+  if (my_strcmp(str, "1") == 0)
+    {
+      my_putstr("dico wesh :\n");
+      show_weshdico(dico);
+    }
+  else if (my_strcmp(str, "2") == 0)
+    {
+      my_putstr("dico francais :\n");
+      show_frenchdico(dico);
+    }
+  else if (my_strcmp(str, "3") == 0)
+    add_word(dico);
+    else if (my_strcmp(str, "4") == 0)
+    {
+      my_putstr("Entrez le mot français :\n");
+      input = readLine();
+      french_to_wesh(dico, input, my_strcmp);
+    }
+  else
+    {
+      my_putstr("Entrez le mot wesh :\n");
+      input = readLine();
+      wesh_to_french(dico, input, my_strcmp);
+    }
+}
+
+void	menu()
+{
+  t_dico	**dico;
+  char		*input;
+
+  dico = malloc(sizof(t_dico*));
+  *dico = malloc(sizeof(t_dico));
+  init(*dico);
+  input = "";
+  my_putstr("Bienvenue sur le DicoWesh !\n");
+  while (my_strcmp(input, "q") != 0)
+    {
+      my_putstr("a : afficher le dictionnaire sous la forme wesh : fr\n");
+      my_putstr("b : afficher le dictionnaire sous la forme fr : wesh\n");
+      my_putstr("1 : ajouter une definition\n");
+      my_putstr("2 : traduire du wesh au francais\n");
+      my_putstr("3 : traduire du francais au wesh");
+      input = readline();
+        while (my_strcmp(input, "1") != 0 && my_strcmp(input, "2") != 0 && my_strcmp(input, "3") != 0 && my_strcmp(input, "4") != 0 && my_strcmp(input, "5") != 0)
+	  {
+	    my_putstr("Veuillez entrer un chiffre entre 1 et 5\n");
+	    input = readLine();
+	  }
+	choice(input, dico);
+	input = readLine();
+    }
+}
+
+
+
+int	main(int argc, char **argv)
+{
+  if (argc > 1)
+    {
+      my_putstr("Argument interdit\n");
+    }
+  else
+    {
+      menu();
+    }
+  argv++;
+  return (0);
+}

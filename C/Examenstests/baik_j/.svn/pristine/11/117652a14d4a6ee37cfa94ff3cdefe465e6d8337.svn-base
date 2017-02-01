@@ -1,0 +1,71 @@
+/*
+** rostring.c for rostring.c in 
+** 
+** Made by BAIK Jaehyun
+** Login   <baik_j@etna-alternance.net>
+** 
+** Started on  Wed Apr  6 15:26:21 2016 BAIK Jaehyun
+** Last update Wed Apr  6 18:30:34 2016 BAIK Jaehyun
+*/
+
+#include <unistd.h>
+#include <stdlib.h>
+
+int	my_strlen(char *str)
+{
+  int	i;
+
+  i = 0;
+  while (str[i] != '\0')
+    {
+      i = i + 1;
+    }
+  return (i);
+}
+
+void	my_putchar(char c)
+{
+  write(1, &c, 1);
+}
+
+void	my_putstr(char *str)
+{
+  int	i;
+
+  for (i = 0; *(str + i) != '\0'; i = i + 1)
+    {
+      my_putchar(*(str + i));
+    }
+}
+
+void	rostring(char *str)
+{
+  int	i;
+  int	j;
+  char	*tmp;
+
+  j = 0;
+  tmp = malloc(my_strlen(str) * sizeof(*tmp) + 1);
+  for (i = my_strlen(str); i >= 0; i++)
+    {
+      while (str[i] != ' ' && str[i] != '\t')
+	{
+	  if (tmp[j] == ' ' || tmp[j] == '\t')
+	    {
+	     tmp[j] = str[i];
+	     my_putchar(tmp[i]);
+	     j++; 
+	    }
+	}
+    }
+}
+
+int	main(int argc, char **argv)
+{
+  if (argc > 1)
+    {
+      rostring(argv[1]);
+      my_putchar('\n');
+    }
+  return (0);
+}

@@ -1,0 +1,30 @@
+/*
+** my_sort_int_tab.c for my_sort_int_tab in 
+** 
+** Made by BAIK Jaehyun
+** Login   <baik_j@etna-alternance.net>
+** 
+** Started on  Thu Mar 24 10:06:31 2016 BAIK Jaehyun
+** Last update Thu Mar 24 12:00:46 2016 BAIK Jaehyun
+*/
+
+void	my_sort_int_tab(int *tab, int size)
+{
+  int	a;
+  int	b;
+  int	temp;
+
+  temp = 0;
+  for (a = 0; a < size; a = a + 1)
+    {
+      for ( b = 0; b < size; b = b + 1)
+	{
+	  if (tab[b] < tab[a])
+	    {
+	      temp = tab[a];
+	      tab[a] = tab[b];
+	      tab[b] = temp;
+	    }
+	}
+    }
+}

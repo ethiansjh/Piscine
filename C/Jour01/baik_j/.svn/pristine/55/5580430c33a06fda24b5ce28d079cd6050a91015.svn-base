@@ -1,0 +1,18 @@
+/*
+** main.c for my_putchar in 
+** 
+** Made by BAIK Jaehyun
+** Login   <baik_j@etna-alternance.net>
+** 
+** Started on  Mon Mar 21 13:55:30 2016 BAIK Jaehyun
+** Last update Mon Mar 21 15:03:07 2016 BAIK Jaehyun
+*/
+#include <stdlib.h>
+
+void	my_putchar(char c);
+
+int	main()
+{
+  my_putchar("ETNA");
+  return (0);
+}
